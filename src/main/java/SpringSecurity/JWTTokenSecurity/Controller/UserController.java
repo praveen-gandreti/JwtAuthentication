@@ -42,16 +42,12 @@ public class UserController {
 	@GetMapping("user/id/{id}")
 	public Users getUserById(@PathVariable("id") int id)
 	{
-		System.out.println("*****************");
-		System.out.println("*****************");
 		return ur.findById(id).orElse(null);
 	}
 	
 	@GetMapping("/user/username/{username}")
 	public Users getUserByUsername(@PathVariable("username") String username)
 	{
-		System.out.println("*****************");
-		System.out.println("*****************");
 		Users u=ur.findByUsername(username);
 		if(u==null)
 			return null;
