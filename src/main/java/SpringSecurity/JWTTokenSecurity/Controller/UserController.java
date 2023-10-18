@@ -79,7 +79,7 @@ public class UserController {
 	@PostMapping("/login")
 	public String login(@RequestBody IncomingRequest request)
 	{
-		
+		// HERE WE ARE GETTING USERNAME AND PASSWORD FROM INCOMING REQUEST.
 		Authentication auth=authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(),request.getPassword()));
 		String t=jwtUtil.generateToken(request.getUsername());
 		SecurityContextHolder.getContext().setAuthentication(auth);
