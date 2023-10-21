@@ -25,6 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/teacher").hasAnyRole("teacher","principal").antMatchers("/student")
 		.hasAnyRole("student","teacher","principal").anyRequest().permitAll().and().sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().httpBasic().and().addFilterBefore(jwtFilter,UsernamePasswordAuthenticationFilter.class);
+		// ADDED PERMISSIONS TO ALL REMAINING END-POINTS
 	}
 	@Bean
 	public AuthenticationManager AuthenticationManagerBean() throws Exception
