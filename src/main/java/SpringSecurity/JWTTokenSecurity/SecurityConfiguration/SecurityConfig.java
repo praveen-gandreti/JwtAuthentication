@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	{
 		http.csrf().disable().authorizeRequests().antMatchers("/principal").hasRole("principal")
 		.antMatchers("/teacher").hasAnyRole("teacher","principal").antMatchers("/student")
-		.hasAnyRole("student","teacher","principal").and().sessionManagement()
+		.hasAnyRole("student","teacher","principal").anyRequest().permitAll().and().sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().httpBasic().and().addFilterBefore(jwtFilter,UsernamePasswordAuthenticationFilter.class);
 	}
 	@Bean
